@@ -21,8 +21,23 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"],
-      },
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              sources: {
+                list: [
+                  {
+                    tag: "img",
+                    attribute: "src",
+                    type: "src",
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },      
       {
         test: /\.css$/,
         use: [
